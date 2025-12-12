@@ -27,6 +27,7 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
   - No standalone binary distribution is provided.
   
 - **Strategy 5: Node Package** ❌ **NOT SUPPORTED**
+  - Node Package installation refers to distributing evaluation harnesses via npm/npx package managers.
   - While EvalAI uses Node.js for frontend development, the platform is not distributed as a Node.js package (npm) for installation.
 
 ### Step B: Service Authentication
@@ -63,8 +64,9 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
 ### Step B: Benchmark Preparation (Inputs)
 
 - **Strategy 1: Benchmark Dataset Preparation (Offline)** ⚠️ **PARTIALLY SUPPORTED**
-  - Challenge hosts upload **ground truth/annotation files** when creating challenges.
-  - EvalAI stores and provides these to evaluation scripts, but does not perform data loading, splitting, normalization, or formatting—these must be implemented in custom evaluation scripts.
+  - Challenge hosts upload **test annotation files** (ground truth labels/answers for the test set) when creating challenges.
+  - Participants submit predictions/outputs that are compared against these annotations.
+  - EvalAI stores and provides these files to evaluation scripts, but does not perform data loading, splitting, normalization, or formatting—these must be implemented in custom evaluation scripts.
   
 - **Strategy 2: Synthetic Data Generation (Generative)** ❌ **NOT SUPPORTED**
   - No native support for generating synthetic test data.
@@ -81,9 +83,10 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
   - EvalAI does not train, load, or configure judge models. All evaluation logic must be implemented in custom scripts.
   
 - **Strategy 2: Ground Truth Preparation** ⚠️ **PARTIALLY SUPPORTED**
-  - Challenge hosts upload ground truth annotations (reference answers, labels, correct outputs) when creating challenges.
-  - EvalAI stores these files and passes them to evaluation scripts, but does not perform any pre-computation, indexing, embedding generation, or other processing.
-  - Differs from Strategy I-B-1 in that this focuses on reference materials for scoring (Phase III), while I-B-1 focuses on test inputs for SUT invocation (Phase II).
+  - Challenge hosts upload ground truth annotation files (reference answers, labels, correct outputs) when creating challenges.
+  - EvalAI stores these files and passes them to evaluation scripts for comparison with participant submissions.
+  - Does not perform any pre-computation, indexing, embedding generation, or other processing—these must be implemented in custom evaluation scripts.
+  - Note: While both I-B-1 and I-C-2 involve storing annotation files, the conceptual distinction is that I-B-1 refers to the benchmark dataset as inputs, while I-C-2 refers to the reference materials used for scoring in Phase III.
 
 ---
 
@@ -179,7 +182,7 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
 4. **Interactive Loop** (Phase II-A-2) - framework only, not implementation
 5. **Deterministic Measurement** (Phase III-A-1) - framework only, not metrics
 
-### Not Supported (27+ strategies)
+### Not Supported (27 strategies)
 
 All other strategies require custom implementation by challenge hosts or are outside EvalAI's scope as a challenge hosting platform.
 
