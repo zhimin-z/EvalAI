@@ -37,6 +37,10 @@ In recent years, it has become increasingly difficult to compare an algorithm so
 
 Our ultimate goal is to build a centralized platform to host, participate and collaborate in AI challenges organized around the globe and we hope to help in benchmarking progress in AI.
 
+## Understanding EvalAI's Evaluation Capabilities
+
+To understand which evaluation workflow strategies are natively supported by EvalAI as a challenge hosting platform, please refer to our [Supported Evaluation Strategies](docs/source/supported-evaluation-strategies.md) documentation. This document provides a comprehensive analysis of EvalAI's capabilities in the context of the unified evaluation workflow.
+
 ## Installation instructions
 
 Setting up EvalAI on your local machine is really easy. You can setup EvalAI using docker:
