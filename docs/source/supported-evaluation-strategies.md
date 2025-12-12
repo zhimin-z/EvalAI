@@ -1,6 +1,12 @@
 # Supported Evaluation Workflow Strategies
 
-This document provides a comprehensive analysis of which strategies from the unified evaluation workflow are natively supported by EvalAI. A strategy is considered "supported" only if EvalAI provides it natively in its full installation—meaning that once EvalAI is fully installed, the strategy can be executed directly without implementing custom modules or integrating external libraries.
+This document provides a comprehensive analysis of which strategies from the unified evaluation workflow are natively supported by EvalAI. 
+
+## Classification Criteria
+
+- **✅ SUPPORTED**: EvalAI provides the complete implementation natively. No custom code needed.
+- **⚠️ PARTIALLY SUPPORTED**: EvalAI provides a purpose-built API framework, infrastructure, or integration points specifically designed for this strategy, but challenge hosts must implement the actual logic.
+- **❌ NOT SUPPORTED**: EvalAI provides no framework, API, or infrastructure for this strategy. Either completely outside EvalAI's scope or would require challenge hosts to build everything from scratch without EvalAI support.
 
 ## Summary
 
