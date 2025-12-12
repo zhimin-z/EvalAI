@@ -7,6 +7,5 @@ glossary
 cite
 changelog
 roadmap
-../supported-evaluation-strategies
 config-reference/index
 legal/index
