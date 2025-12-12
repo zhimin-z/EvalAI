@@ -224,7 +224,7 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
 11. **Subjective Measurement** (III-A-3) - API framework for judges
 12. **Performance Measurement** (III-A-4) - API framework for profiling
 
-### Not Supported (20 strategies)
+### Not Supported (16 strategies)
 
 All other strategies require custom implementation or are outside EvalAI's scope as a challenge hosting platform.
 
