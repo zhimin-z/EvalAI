@@ -16,7 +16,8 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
   - EvalAI itself can be installed via PyPI/pip, but it does not act as an evaluation harness that installs and manages evaluation dependencies.
   
 - **Strategy 2: Git Clone** ✅ **SUPPORTED**
-  - EvalAI can be cloned from GitHub and installed from source for development and deployment.
+  - EvalAI platform itself can be cloned from GitHub and installed from source for development and deployment.
+  - Note: This refers to installing EvalAI infrastructure, not cloning models or evaluation harnesses for evaluation purposes.
   
 - **Strategy 3: Container Images** ✅ **SUPPORTED**
   - EvalAI provides Docker and Docker Compose configurations for containerized deployment.
@@ -26,7 +27,7 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
   - No standalone binary distribution is provided.
   
 - **Strategy 5: Node Package** ❌ **NOT SUPPORTED**
-  - While EvalAI uses Node.js for frontend development, it is not distributed as a Node package for evaluation purposes.
+  - While EvalAI uses Node.js for frontend development, the platform is not distributed as a Node.js package (npm) for installation.
 
 ### Step B: Service Authentication
 
@@ -62,8 +63,8 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
 ### Step B: Benchmark Preparation (Inputs)
 
 - **Strategy 1: Benchmark Dataset Preparation (Offline)** ⚠️ **PARTIALLY SUPPORTED**
-  - Challenge hosts upload **test annotation files** (ground truth) when creating challenges.
-  - EvalAI stores and provides these to evaluation scripts, but does not perform data loading, splitting, normalization, or formatting.
+  - Challenge hosts upload **ground truth/annotation files** when creating challenges.
+  - EvalAI stores and provides these to evaluation scripts, but does not perform data loading, splitting, normalization, or formatting—these must be implemented in custom evaluation scripts.
   
 - **Strategy 2: Synthetic Data Generation (Generative)** ❌ **NOT SUPPORTED**
   - No native support for generating synthetic test data.
@@ -80,8 +81,9 @@ EvalAI is a **platform for hosting and managing AI challenges** with leaderboard
   - EvalAI does not train, load, or configure judge models. All evaluation logic must be implemented in custom scripts.
   
 - **Strategy 2: Ground Truth Preparation** ⚠️ **PARTIALLY SUPPORTED**
-  - Challenge hosts upload ground truth annotations when creating challenges.
-  - EvalAI stores these files and passes them to evaluation scripts, but does not perform any pre-computation, indexing, or processing.
+  - Challenge hosts upload ground truth annotations (reference answers, labels, correct outputs) when creating challenges.
+  - EvalAI stores these files and passes them to evaluation scripts, but does not perform any pre-computation, indexing, embedding generation, or other processing.
+  - Differs from Strategy I-B-1 in that this focuses on reference materials for scoring (Phase III), while I-B-1 focuses on test inputs for SUT invocation (Phase II).
 
 ---
 
